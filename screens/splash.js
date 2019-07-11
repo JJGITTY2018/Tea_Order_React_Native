@@ -32,14 +32,7 @@ export default class Startup extends React.Component {
           </Text>
         </View>
 
-        <View style={styles.options}>
-          <TouchableOpacity>
-            <Text style={styles.button_login}> Login </Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.button_sign_up}> Sign Up </Text>
-          </TouchableOpacity>
-        </View>
+
       </View>
     );
   }

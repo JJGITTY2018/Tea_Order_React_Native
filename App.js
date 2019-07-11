@@ -16,26 +16,30 @@ import {
   StatusBar
 } from "react-native";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions
-} from "react-native/Libraries/NewAppScreen";
-
+import SplashScreen from 'react-native-splash-screen'
 import StartUp from "./screens/startup";
 
-const App = () => {
-  return (
-    <View>
-      <SafeAreaView>
-        <StartUp />
-      </SafeAreaView>
-    </View>
-  );
-};
 
-const styles = StyleSheet.create({});
+export default class App extends React.Component {
 
-export default App;
+
+  componentDidMount() {
+    // do stuff while splash screen is shown
+    // After having done stuff (such as async tasks) hide the splash screen
+    SplashScreen.hide();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+      <StartUp />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#4F6D7A',
+  }
+});
