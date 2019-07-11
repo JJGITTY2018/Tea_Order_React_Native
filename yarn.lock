@@ -5127,6 +5127,11 @@ react-native-navigation@^2.22.3:
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
 
+react-native-update-gradle@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-update-gradle/-/react-native-update-gradle-1.2.0.tgz#b05f9f0ac0ad41bd9a7c89f828338968c02c1718"
+  integrity sha512-fCpIwfrAb0QQpgnp/9kpZMDJqnQHlEV6BNg3AxLf+Ho/sTqa+3x5KuGiPOubIGilQAZu+9gIXETdg9D++xN62w==
+
 react-native@0.60.0:
   version "0.60.0"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.60.0.tgz#f5302b6efe797c5f5fbdfebaba2ff174fc433890"
