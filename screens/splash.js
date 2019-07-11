@@ -18,7 +18,6 @@ export default class Startup extends React.Component {
     const title3 = `${title1}` + ' ' + `${title2}`;;
     return (
       <View style={styles.login_container}>
-        <StatusBar barStyle={"dark-content"} />
         <Text style={styles.title}> {title3} </Text>
 
         <View>

@@ -31,15 +31,17 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+     
+      <View>
+        <StatusBar barStyle= "dark-content"
+          backgroundColor= '#FCCF00' />
       <StartUp />
       </View>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#4F6D7A',
-  }
+
 });
