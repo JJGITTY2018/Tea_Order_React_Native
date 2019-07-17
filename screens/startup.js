@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation } from 'react-native-navigation';
+
 
 
 import {
@@ -13,8 +13,8 @@ import {
 
 export default class Startup extends React.Component {
   render() {
-    const title1 = '<DADA';;
-    const title2 = 'TEA>';;
+    const title1 = '<DADA'
+    const title2 = 'TEA>'
     const title3 = `${title1}` + ' ' + `${title2}`;;
     return (
       <View style={styles.login_container}>
