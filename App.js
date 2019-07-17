@@ -1,47 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from "react";
+import { View, Text } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import React, { Fragment } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar
-} from "react-native";
-
-import SplashScreen from 'react-native-splash-screen'
 import StartUp from "./screens/startup";
+import Login from "./screens/login"
+import SignUp from "./screens/signup"
+// import DetailsScreen from "./screens/home"
 
 
-export default class App extends React.Component {
-
-
-  componentDidMount() {
-    // do stuff while splash screen is shown
-    // After having done stuff (such as async tasks) hide the splash screen
-    SplashScreen.hide();
-  }
-
+class HomeScreen extends React.Component {
   render() {
     return (
-     
-      <View>
-        <StatusBar barStyle= "dark-content"
-          backgroundColor= '#FCCF00' />
-      <StartUp />
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Home Screen</Text>
       </View>
-
     );
   }
 }
 
-const styles = StyleSheet.create({
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
 
-});
+// export default createAppContainer(AppNavigator);
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+
+
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
+}
+
