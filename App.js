@@ -1,51 +1,38 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import StartUp from "./screens/startup";
-import Login from "./screens/login"
-import SignUp from "./screens/signup"
-// import DetailsScreen from "./screens/home"
+import React, { Fragment } from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar
+} from "react-native";
 
+import SplashScreen from 'react-native-splash-screen'
+import Startup from "./screens/startup"
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen</Text>
-      </View>
-    );
-  }
-}
+import AppNavigator from "./components/AppNavigator"
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsScreen
-  },
-  {
-    initialRouteName: "Home"
-  }
-);
-
-// export default createAppContainer(AppNavigator);
-
-const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
+  componentDidMount() {
+    SplashScreen.hide();
   }
-}
 
-
-class DetailsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
+      <Fragment> 
+        <StatusBar barStyle={"dark-content"} backgroundColor='#FCCF00' /> 
+       <AppNavigator />
+      </Fragment>
+        );
   }
 }
 
+
+
+
+// const styles = StyleSheet.create({
+
+// });

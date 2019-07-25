@@ -7,7 +7,8 @@ import {
   View,
   Text,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 
 import InputBox from '../components/textInput';
@@ -18,12 +19,22 @@ export default class Login extends React.Component {
     password: '',
   };
 
+ 
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.state.routeName
+    }
+  };
+
+
   render() {
     const title1 = '<WELCOME'
     const title2 = 'BACK>'
     const title3 = `${title1}` + ' ' + `${title2}`;;
     return (
       <View style={styles.container}>
+        <StatusBar barStyle={"dark-content"} backgroundColor='#FCCF00' /> 
+
         <Text style={styles.title}> {title3} </Text>
 
         <Image
@@ -54,7 +65,7 @@ export default class Login extends React.Component {
             clearButtonMode="always"
           />
           <View style={styles.options}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress = {() => this.props.navigation.navigate('Home') }>
               <Text style={styles.button_login}> Login </Text>
             </TouchableOpacity>
           </View>
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#FCCF00",
     justifyContent: 'center',
-    alignItems: "center"
+    // alignItems: "center"
   },
   labels: {
     fontFamily: "theboldfont",

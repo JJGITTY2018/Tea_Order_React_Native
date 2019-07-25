@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 import {
   StyleSheet,
   Image,
@@ -12,14 +10,22 @@ import {
 } from 'react-native';
 
 export default class Startup extends React.Component {
+  static navigationOptions = {
+    title: 'StartUp',
+    headerStyle:{
+      display: 'none',
+    }
+  };
+
   render() {
     const title1 = '<DADA'
     const title2 = 'TEA>'
-    const title3 = `${title1}` + ' ' + `${title2}`;;
+    const title3 = `${title1}` + ' ' + `${title2}`;
     return (
       <View style={styles.login_container}>
-      <StatusBar barStyle = {"dark-content"} /> 
+        <StatusBar barStyle={"dark-content"} backgroundColor='#FCCF00' /> 
         <Text style={styles.title}> {title3} </Text>
+        {/* <Text style={styles.title}> SPLASH PAGE </Text> */}
 
         <View>
           <Image
@@ -33,10 +39,10 @@ export default class Startup extends React.Component {
         </View>
 
         <View style={styles.options}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Login',{username: "Jacky"})}>
             <Text style={styles.button_login}> Login </Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.button_sign_up}> Sign Up </Text>
           </TouchableOpacity>
         </View>

@@ -7,26 +7,39 @@ import {
   Text,
   KeyboardAvoidingView,
   TouchableOpacity,
+  StatusBar,
 } from "react-native";
 
 import InputBox from '../components/textInput';
 
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
   state = {
     user_email: 'bobatea123@gmail.com',
     password: '',
   };
 
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.state.routeName,
+      headerStyle: {
+        backgroundColor: '#8BC27F',
+      },
+      headerTintColor: '#000',
+      headerTitleStyle: {
+        fontFamily: "theboldfont",
+      }
+    }
+  };
+
   render() {
     const title1 = '<SIGN'
     const title2 = 'UP>'
-    const title3 = `${title1}` + ' ' + `${title2}`;;
+    const title3 = `${title1}` + ' ' + `${title2}`;
     return (
       <View style={styles.container}>
+        <StatusBar barStyle={"dark-content"} backgroundColor='#FCCF00' /> 
         <Text style={styles.title}> {title3} </Text>
         <Text style={styles.subText}> Gotta Lotta Bubble tea!</Text>
-
-
         <Image
           style={styles.logo}
           source={require("../assets/boba_tea_logo.png")}
@@ -76,7 +89,7 @@ export default class SignUp extends React.Component {
       
         </KeyboardAvoidingView>
         <View style={styles.options}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Startup')}>
             <Text style={styles.button_sign_up}> Sign Up </Text>
           </TouchableOpacity>
         </View>
@@ -84,6 +97,8 @@ export default class SignUp extends React.Component {
     );
   }
 }
+
+export default (SignUp);
 
 const styles = StyleSheet.create({
   container: {
@@ -111,7 +126,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: 'Splatch',
-    fontSize: 20,
+    fontSize: 30,
     color: "black",
     textAlign: "center"
   },
